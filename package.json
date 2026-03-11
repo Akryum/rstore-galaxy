@@ -19,7 +19,7 @@
     "@iconify-json/lucide": "^1.2.96",
     "@nuxt/eslint": "^1.15.2",
     "@nuxt/ui": "^4.5.1",
-    "@rstore/nuxt-drizzle": "https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@e730ef3",
+    "@rstore/nuxt-drizzle": "https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@d73daaf",
     "@rstore/vue": "^0.8.4",
     "@tresjs/cientos": "^5.6.0",
     "@tresjs/nuxt": "^5.5.0",
