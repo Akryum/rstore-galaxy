@@ -20,6 +20,8 @@ RUN pnpm db:migrate
 
 FROM node:25-bookworm-slim AS runner
 
+RUN apt update && apt install -y curl
+
 WORKDIR /app
 
 ENV NODE_ENV=production
