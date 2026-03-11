@@ -14,11 +14,11 @@ const sceneQuery = await store.celestialProfiles.liveQuery(builder =>
   builder.many({
     fetchPolicy: 'cache-and-fetch',
     params: {
-      with: {
-        user: true,
-      },
       orderBy: ['updatedAt.desc'],
       limit: SCENE_QUERY_LIMIT,
+    },
+    include: {
+      user: true,
     },
   }),
 )
