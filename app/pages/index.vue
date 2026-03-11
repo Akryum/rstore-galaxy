@@ -8,6 +8,7 @@ type SceneProfileItem = StoreWrappedItem<'celestialProfiles'> & {
 const SCENE_QUERY_LIMIT = 1000
 
 const store = useStore()
+const route = useRoute()
 const { loggedIn, user, clear } = useUserSession()
 
 const sceneQuery = await store.celestialProfiles.liveQuery(builder =>
@@ -63,6 +64,7 @@ const stressTestVisibleSyntheticProfileCount = computed(() => {
   return sceneItems.value.filter(item => isRealtimeStressLogin(item.user.login)).length
 })
 const selectedUserLogin = computed(() => selectedProfile.value?.user.login ?? null)
+const kioskMode = computed(() => route.query.kiosk === 'true')
 
 function clearSelection() {
   selectedId.value = null
@@ -137,7 +139,7 @@ const isDev = import.meta.dev
       @select="selectedId = $event"
     />
 
-    <div class="pointer-events-none relative z-10 min-h-screen">
+    <div v-if="!kioskMode" class="pointer-events-none relative z-10 min-h-screen">
       <header class="pointer-events-auto absolute inset-x-0 top-0 px-4 py-4 sm:px-6">
         <div class="pointer-events-auto mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-full border border-white/8 bg-slate-950/42 px-4 py-3 shadow-xl shadow-slate-950/30 backdrop-blur-xl">
           <div class="min-w-0 flex items-center gap-4 max-md:flex-1">
@@ -269,7 +271,7 @@ const isDev = import.meta.dev
     </div>
 
     <div
-      v-if="mobileInspectorOpen"
+      v-if="!kioskMode && mobileInspectorOpen"
       class="fixed bottom-0 inset-x-0 z-10 p-4 flex items-center justify-around bg-default/90 backdrop-blur-2xl"
     >
       <UDrawer
