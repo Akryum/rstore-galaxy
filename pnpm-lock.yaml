@@ -18,8 +18,8 @@ importers:
         specifier: ^4.5.1
         version: 4.5.1(@tiptap/extensions@3.20.1(@tiptap/core@3.20.1(@tiptap/pm@3.20.1))(@tiptap/pm@3.20.1))(@tiptap/y-tiptap@3.0.2(prosemirror-model@1.25.4)(prosemirror-state@1.4.4)(prosemirror-view@1.41.6)(y-protocols@1.0.7(yjs@13.6.29))(yjs@13.6.29))(change-case@5.4.4)(db0@0.3.4(drizzle-orm@0.45.1(postgres@3.4.8)))(embla-carousel@8.6.0)(ioredis@5.10.0)(magicast@0.5.2)(tailwindcss@4.2.1)(typescript@5.9.3)(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vue-router@4.6.4(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))(yjs@13.6.29)
       '@rstore/nuxt-drizzle':
-        specifier: https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@6196411
-        version: https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@6196411(drizzle-orm@0.45.1(postgres@3.4.8))(magicast@0.5.2)(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vue@3.5.30(typescript@5.9.3))
+        specifier: https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@e730ef3
+        version: https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@e730ef3(drizzle-orm@0.45.1(postgres@3.4.8))(magicast@0.5.2)(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vue@3.5.30(typescript@5.9.3))
       '@rstore/vue':
         specifier: ^0.8.4
         version: 0.8.4(vue@3.5.30(typescript@5.9.3))
@@ -1878,35 +1878,35 @@ packages:
   '@rstore/core@0.8.4':
     resolution: {integrity: sha512-DrahdAEH6lSWGuJEHXP5i4mLvJ+4QmpOt2b4+hrzy/eRZSqPQ4hop0cvHmehW1wFJy+iBRQKhmu4Y/UUBD44og==}
 
-  '@rstore/core@https://pkg.pr.new/directus/rstore/@rstore/core@6196411bd0a441d15a477116066ca644ecf1f86a':
-    resolution: {integrity: sha512-UN15hjhdqNrBTyZnnWwjQwQy2/NWXRfsAn6k1bntK0zc0hslWF2qnvOdSP6Jtjm1Afrt4U/KDYov9ynxYSGUeQ==, tarball: https://pkg.pr.new/directus/rstore/@rstore/core@6196411bd0a441d15a477116066ca644ecf1f86a}
+  '@rstore/core@https://pkg.pr.new/directus/rstore/@rstore/core@e730ef3b7913f8bc0f342d8267b24552d519eb03':
+    resolution: {integrity: sha512-CFANB1K3i/wDJL6J5TGCPXpcjGjCRcqXMy7SX4fuG+GL98NAyHukfBfmcZ377sXtkuG+jd7bH+UO/1hAl/cuzw==, tarball: https://pkg.pr.new/directus/rstore/@rstore/core@e730ef3b7913f8bc0f342d8267b24552d519eb03}
     version: 0.8.4
 
-  '@rstore/devtools@https://pkg.pr.new/directus/rstore/@rstore/devtools@6196411bd0a441d15a477116066ca644ecf1f86a':
-    resolution: {integrity: sha512-WvMgcRY69GX/Q75GyJgBS0Tnr4iYT7rx2o7susMvBHx2E+LSthTvbyQlzNZIyhGkM95iJtDBLQ6RhTQhFwFk/g==, tarball: https://pkg.pr.new/directus/rstore/@rstore/devtools@6196411bd0a441d15a477116066ca644ecf1f86a}
+  '@rstore/devtools@https://pkg.pr.new/directus/rstore/@rstore/devtools@e730ef3b7913f8bc0f342d8267b24552d519eb03':
+    resolution: {integrity: sha512-4ZbqVE1IiDjzlaSBBWN5bIm9Vl8usqLH3CSI8H3kSU7LUcC057x8oRCn21GEKRNHqkVf16AxDzsEZQ4H+jk9HA==, tarball: https://pkg.pr.new/directus/rstore/@rstore/devtools@e730ef3b7913f8bc0f342d8267b24552d519eb03}
     version: 0.8.4
     peerDependencies:
       vue: ^3.5.21
 
-  '@rstore/nuxt-drizzle@https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@6196411':
-    resolution: {integrity: sha512-Ja85QW2Qk3/buOMn7YmwlqWoWfow4+DM0E34vUk296rWPWmWbqATx/sGN9UdBV4qV54YKwnYMAfMhEloTnD/Tg==, tarball: https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@6196411}
+  '@rstore/nuxt-drizzle@https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@e730ef3':
+    resolution: {integrity: sha512-p7x1pHl/SSWqwtljpdizkJrmlH5NTD0zV3HXhvUeaREu+bJ0QO3gxw097EASIOoAY9oIWX6IIb/ctCMB+lj3mA==, tarball: https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@e730ef3}
     version: 0.8.4
     peerDependencies:
       drizzle-orm: '*'
 
-  '@rstore/nuxt@https://pkg.pr.new/directus/rstore/@rstore/nuxt@6196411bd0a441d15a477116066ca644ecf1f86a':
-    resolution: {integrity: sha512-kfoFJzIs5UkjMYwoH7P8b/W5GrYNFU32HlW8G6fTNK/2BxAVRgQ10JDFTS4lBFv6uzhdNx9LSmcF38hdup3aHA==, tarball: https://pkg.pr.new/directus/rstore/@rstore/nuxt@6196411bd0a441d15a477116066ca644ecf1f86a}
+  '@rstore/nuxt@https://pkg.pr.new/directus/rstore/@rstore/nuxt@e730ef3b7913f8bc0f342d8267b24552d519eb03':
+    resolution: {integrity: sha512-rcrOzYWsRBFyOq1bYwDsT3nF50yNXNPn/BkaoMqPFzsTwyWAwzOUuxd3D7icU0uPENe7fRZ/jwZtppVairD1UA==, tarball: https://pkg.pr.new/directus/rstore/@rstore/nuxt@e730ef3b7913f8bc0f342d8267b24552d519eb03}
     version: 0.8.4
 
-  '@rstore/offline@https://pkg.pr.new/directus/rstore/@rstore/offline@6196411bd0a441d15a477116066ca644ecf1f86a':
-    resolution: {integrity: sha512-OvQz8ldr6sP1mRkyhjoysVOpMDFAd6Dujn3+Uak2qKELmZGnJW8Y2irRaCj3HvyyY3EJLD27VWPcR7050XHkag==, tarball: https://pkg.pr.new/directus/rstore/@rstore/offline@6196411bd0a441d15a477116066ca644ecf1f86a}
+  '@rstore/offline@https://pkg.pr.new/directus/rstore/@rstore/offline@e730ef3b7913f8bc0f342d8267b24552d519eb03':
+    resolution: {integrity: sha512-mfBVpE4LwMPGoPaupRnigDOIUHANCze4OvozpPUNyx4MS9MKcE84D0K2ui5i8cETp/4D8Q/yYZvWcnsJ3obX3A==, tarball: https://pkg.pr.new/directus/rstore/@rstore/offline@e730ef3b7913f8bc0f342d8267b24552d519eb03}
     version: 0.8.4
 
   '@rstore/shared@0.8.4':
     resolution: {integrity: sha512-xLerEAckLckn7J1DXXcIAktIFTVC6C7zcIMzVrVtVG1NGSAkcmpMgGC29CxRFAoJ+PFooPM/HBVmNEBZnZOGYw==}
 
-  '@rstore/shared@https://pkg.pr.new/directus/rstore/@rstore/shared@6196411bd0a441d15a477116066ca644ecf1f86a':
-    resolution: {integrity: sha512-3RLp0K1n8m/AAwe5S8hcsL6h2Dcup/WQcU4SYp6zg8rIuJtDaHAPgJGD1IuMORYT5cuIVTasGY19yd37zAwXQg==, tarball: https://pkg.pr.new/directus/rstore/@rstore/shared@6196411bd0a441d15a477116066ca644ecf1f86a}
+  '@rstore/shared@https://pkg.pr.new/directus/rstore/@rstore/shared@e730ef3b7913f8bc0f342d8267b24552d519eb03':
+    resolution: {integrity: sha512-slQ/KRtCa47/aWDatJmEZFhrVlgCyYF2DD2La+sh1Q00pcqketmZmdxBR8pCJrMi8v/HWDl3Yi2oxCEYeJFZig==, tarball: https://pkg.pr.new/directus/rstore/@rstore/shared@e730ef3b7913f8bc0f342d8267b24552d519eb03}
     version: 0.8.4
 
   '@rstore/vue@0.8.4':
@@ -1914,8 +1914,8 @@ packages:
     peerDependencies:
       vue: ^3.5.21
 
-  '@rstore/vue@https://pkg.pr.new/directus/rstore/@rstore/vue@6196411bd0a441d15a477116066ca644ecf1f86a':
-    resolution: {integrity: sha512-ldClY+Oy86ICDaJrUdhpYziXeKjwONA9mkPVhKkeEruGwyjZNwlA9OcK0N4vJ3rGBXoF0m6e7k/PqoIGR6HrFw==, tarball: https://pkg.pr.new/directus/rstore/@rstore/vue@6196411bd0a441d15a477116066ca644ecf1f86a}
+  '@rstore/vue@https://pkg.pr.new/directus/rstore/@rstore/vue@e730ef3b7913f8bc0f342d8267b24552d519eb03':
+    resolution: {integrity: sha512-Tdjb0FVV9Qlh8XYjF0npxf5d/zKg2Wk8a4a80XaNwEIuys/kXHiY8qtLmVmfcfOCc0kRYBOfvGQOcfoPNXHCuA==, tarball: https://pkg.pr.new/directus/rstore/@rstore/vue@e730ef3b7913f8bc0f342d8267b24552d519eb03}
     version: 0.8.4
     peerDependencies:
       vue: ^3.5.21
@@ -8063,22 +8063,22 @@ snapshots:
     dependencies:
       '@rstore/shared': 0.8.4
 
-  '@rstore/core@https://pkg.pr.new/directus/rstore/@rstore/core@6196411bd0a441d15a477116066ca644ecf1f86a':
+  '@rstore/core@https://pkg.pr.new/directus/rstore/@rstore/core@e730ef3b7913f8bc0f342d8267b24552d519eb03':
     dependencies:
-      '@rstore/shared': https://pkg.pr.new/directus/rstore/@rstore/shared@6196411bd0a441d15a477116066ca644ecf1f86a
+      '@rstore/shared': https://pkg.pr.new/directus/rstore/@rstore/shared@e730ef3b7913f8bc0f342d8267b24552d519eb03
 
-  '@rstore/devtools@https://pkg.pr.new/directus/rstore/@rstore/devtools@6196411bd0a441d15a477116066ca644ecf1f86a(vue@3.5.30(typescript@5.9.3))':
+  '@rstore/devtools@https://pkg.pr.new/directus/rstore/@rstore/devtools@e730ef3b7913f8bc0f342d8267b24552d519eb03(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       sirv: 3.0.2
       vue: 3.5.30(typescript@5.9.3)
 
-  '@rstore/nuxt-drizzle@https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@6196411(drizzle-orm@0.45.1(postgres@3.4.8))(magicast@0.5.2)(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vue@3.5.30(typescript@5.9.3))':
+  '@rstore/nuxt-drizzle@https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@e730ef3(drizzle-orm@0.45.1(postgres@3.4.8))(magicast@0.5.2)(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@nuxt/kit': 4.3.1(magicast@0.5.2)
-      '@rstore/nuxt': https://pkg.pr.new/directus/rstore/@rstore/nuxt@6196411bd0a441d15a477116066ca644ecf1f86a(magicast@0.5.2)(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vue@3.5.30(typescript@5.9.3))
-      '@rstore/offline': https://pkg.pr.new/directus/rstore/@rstore/offline@6196411bd0a441d15a477116066ca644ecf1f86a
-      '@rstore/shared': https://pkg.pr.new/directus/rstore/@rstore/shared@6196411bd0a441d15a477116066ca644ecf1f86a
-      '@rstore/vue': https://pkg.pr.new/directus/rstore/@rstore/vue@6196411bd0a441d15a477116066ca644ecf1f86a(vue@3.5.30(typescript@5.9.3))
+      '@rstore/nuxt': https://pkg.pr.new/directus/rstore/@rstore/nuxt@e730ef3b7913f8bc0f342d8267b24552d519eb03(magicast@0.5.2)(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vue@3.5.30(typescript@5.9.3))
+      '@rstore/offline': https://pkg.pr.new/directus/rstore/@rstore/offline@e730ef3b7913f8bc0f342d8267b24552d519eb03
+      '@rstore/shared': https://pkg.pr.new/directus/rstore/@rstore/shared@e730ef3b7913f8bc0f342d8267b24552d519eb03
+      '@rstore/vue': https://pkg.pr.new/directus/rstore/@rstore/vue@e730ef3b7913f8bc0f342d8267b24552d519eb03(vue@3.5.30(typescript@5.9.3))
       '@vueuse/core': 14.2.1(vue@3.5.30(typescript@5.9.3))
       drizzle-orm: 0.45.1(postgres@3.4.8)
       h3: 1.15.6
@@ -8090,30 +8090,31 @@ snapshots:
       - vite
       - vue
 
-  '@rstore/nuxt@https://pkg.pr.new/directus/rstore/@rstore/nuxt@6196411bd0a441d15a477116066ca644ecf1f86a(magicast@0.5.2)(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vue@3.5.30(typescript@5.9.3))':
+  '@rstore/nuxt@https://pkg.pr.new/directus/rstore/@rstore/nuxt@e730ef3b7913f8bc0f342d8267b24552d519eb03(magicast@0.5.2)(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@nuxt/devtools-kit': 2.7.0(magicast@0.5.2)(vite@7.3.1(@types/node@25.4.0)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))
       '@nuxt/kit': 4.3.1(magicast@0.5.2)
-      '@rstore/devtools': https://pkg.pr.new/directus/rstore/@rstore/devtools@6196411bd0a441d15a477116066ca644ecf1f86a(vue@3.5.30(typescript@5.9.3))
-      '@rstore/shared': https://pkg.pr.new/directus/rstore/@rstore/shared@6196411bd0a441d15a477116066ca644ecf1f86a
-      '@rstore/vue': https://pkg.pr.new/directus/rstore/@rstore/vue@6196411bd0a441d15a477116066ca644ecf1f86a(vue@3.5.30(typescript@5.9.3))
+      '@rstore/devtools': https://pkg.pr.new/directus/rstore/@rstore/devtools@e730ef3b7913f8bc0f342d8267b24552d519eb03(vue@3.5.30(typescript@5.9.3))
+      '@rstore/shared': https://pkg.pr.new/directus/rstore/@rstore/shared@e730ef3b7913f8bc0f342d8267b24552d519eb03
+      '@rstore/vue': https://pkg.pr.new/directus/rstore/@rstore/vue@e730ef3b7913f8bc0f342d8267b24552d519eb03(vue@3.5.30(typescript@5.9.3))
+      serialize-javascript: 6.0.2
       sirv: 3.0.2
     transitivePeerDependencies:
       - magicast
       - vite
       - vue
 
-  '@rstore/offline@https://pkg.pr.new/directus/rstore/@rstore/offline@6196411bd0a441d15a477116066ca644ecf1f86a':
+  '@rstore/offline@https://pkg.pr.new/directus/rstore/@rstore/offline@e730ef3b7913f8bc0f342d8267b24552d519eb03':
     dependencies:
-      '@rstore/core': https://pkg.pr.new/directus/rstore/@rstore/core@6196411bd0a441d15a477116066ca644ecf1f86a
-      '@rstore/shared': https://pkg.pr.new/directus/rstore/@rstore/shared@6196411bd0a441d15a477116066ca644ecf1f86a
+      '@rstore/core': https://pkg.pr.new/directus/rstore/@rstore/core@e730ef3b7913f8bc0f342d8267b24552d519eb03
+      '@rstore/shared': https://pkg.pr.new/directus/rstore/@rstore/shared@e730ef3b7913f8bc0f342d8267b24552d519eb03
 
   '@rstore/shared@0.8.4':
     dependencies:
       '@standard-schema/spec': 1.1.0
       klona: 2.0.6
 
-  '@rstore/shared@https://pkg.pr.new/directus/rstore/@rstore/shared@6196411bd0a441d15a477116066ca644ecf1f86a':
+  '@rstore/shared@https://pkg.pr.new/directus/rstore/@rstore/shared@e730ef3b7913f8bc0f342d8267b24552d519eb03':
     dependencies:
       '@standard-schema/spec': 1.1.0
       klona: 2.0.6
@@ -8127,10 +8128,10 @@ snapshots:
       klona: 2.0.6
       vue: 3.5.30(typescript@5.9.3)
 
-  '@rstore/vue@https://pkg.pr.new/directus/rstore/@rstore/vue@6196411bd0a441d15a477116066ca644ecf1f86a(vue@3.5.30(typescript@5.9.3))':
+  '@rstore/vue@https://pkg.pr.new/directus/rstore/@rstore/vue@e730ef3b7913f8bc0f342d8267b24552d519eb03(vue@3.5.30(typescript@5.9.3))':
     dependencies:
-      '@rstore/core': https://pkg.pr.new/directus/rstore/@rstore/core@6196411bd0a441d15a477116066ca644ecf1f86a
-      '@rstore/shared': https://pkg.pr.new/directus/rstore/@rstore/shared@6196411bd0a441d15a477116066ca644ecf1f86a
+      '@rstore/core': https://pkg.pr.new/directus/rstore/@rstore/core@e730ef3b7913f8bc0f342d8267b24552d519eb03
+      '@rstore/shared': https://pkg.pr.new/directus/rstore/@rstore/shared@e730ef3b7913f8bc0f342d8267b24552d519eb03
       '@vueuse/core': 14.2.1(vue@3.5.30(typescript@5.9.3))
       fast-equals: 5.4.0
       klona: 2.0.6

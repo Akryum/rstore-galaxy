@@ -21,6 +21,12 @@ export default defineNuxtConfig({
     fonts: false,
   },
 
+  rstore: {
+    store: {
+      cacheStaggering: 5,
+    },
+  },
+
   rstoreDrizzle: {
     drizzleConfigPath: 'drizzle.config.ts',
     drizzleImport: {
