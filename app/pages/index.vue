@@ -5,7 +5,7 @@ type SceneProfileItem = StoreWrappedItem<'celestialProfiles'> & {
   user: StoreWrappedItem<'users'>
 }
 
-const SCENE_QUERY_LIMIT = 1000
+// const SCENE_QUERY_LIMIT = 1000
 
 const store = useStore()
 const route = useRoute()
@@ -16,7 +16,7 @@ const sceneQuery = await store.celestialProfiles.liveQuery(builder =>
     fetchPolicy: 'cache-and-fetch',
     params: {
       orderBy: ['updatedAt.desc'],
-      limit: SCENE_QUERY_LIMIT,
+      // limit: SCENE_QUERY_LIMIT,
     },
     include: {
       user: true,
@@ -42,10 +42,8 @@ function handleEscape(event: KeyboardEvent) {
   }
 }
 
-const sceneItems = computed<SceneProfileItem[]>(() => {
-  const items = sceneQuery.data.value ?? []
-  return items.filter((item): item is SceneProfileItem => Boolean(item?.user))
-})
+const sceneItems = sceneQuery.data as Ref<SceneProfileItem[]>
+
 const profileCount = computed(() => sceneItems.value.length)
 const selectedProfile = computed(() => {
   return selectedId.value
@@ -263,7 +261,7 @@ const isDev = import.meta.dev
               />
               <GalaxyStressTestPanel
                 :visible-synthetic-profile-count="stressTestVisibleSyntheticProfileCount"
-                :scene-limit="SCENE_QUERY_LIMIT"
+                :scene-limit="1000"
                 :selected-user-login="selectedUserLogin"
                 @clear-selection="clearSelection"
               />
@@ -304,7 +302,7 @@ const isDev = import.meta.dev
               />
               <GalaxyStressTestPanel
                 :visible-synthetic-profile-count="stressTestVisibleSyntheticProfileCount"
-                :scene-limit="SCENE_QUERY_LIMIT"
+                :scene-limit="1000"
                 :selected-user-login="selectedUserLogin"
                 @clear-selection="clearSelection"
               />
