@@ -139,6 +139,7 @@ function selectProfile(id: string) {
 
     <UModal
       v-model:open="searchOpen"
+      :fullscreen="isMobile"
       :ui="{ overlay: 'bg-slate-950/72 backdrop-blur-sm' }"
     >
       <template #content>
