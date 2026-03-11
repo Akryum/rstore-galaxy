@@ -1,6 +1,7 @@
 import { eq } from 'drizzle-orm'
 import { sendRedirect } from 'h3'
 import { celestialProfiles, users } from '~~/server/database/schema'
+import * as schema from '~~/server/database/schema'
 import { useDrizzle } from '~~/server/utils/drizzle'
 import { buildDefaultCelestialProfile, hashStringToSeed } from '~~/shared/galaxy'
 
@@ -59,8 +60,24 @@ export default defineOAuthGitHubEventHandler({
       where: eq(celestialProfiles.userId, dbUser.id),
     })
 
+    publishRstoreDrizzleRealtimeUpdate({
+      collection: schema.users,
+      type: existingUser ? 'updated' : 'created',
+      record: dbUser,
+    })
+
     if (!existingProfile) {
-      await db.insert(celestialProfiles).values(buildDefaultCelestialProfile(dbUser.id, seed))
+      const [profile] = await db.insert(celestialProfiles).values(buildDefaultCelestialProfile(dbUser.id, seed)).returning()
+
+      if (!profile) {
+        throw new Error('Failed to create celestial profile for the user.')
+      }
+
+      publishRstoreDrizzleRealtimeUpdate({
+        collection: schema.celestialProfiles,
+        type: 'created',
+        record: profile,
+      })
     }
 
     await setUserSession(event, {

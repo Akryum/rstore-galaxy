@@ -11,7 +11,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare && skills-npm --yes",
+    "prepare": "nuxt prepare && skills-npm --yes",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck"
   },
@@ -19,7 +19,7 @@
     "@iconify-json/lucide": "^1.2.96",
     "@nuxt/eslint": "^1.15.2",
     "@nuxt/ui": "^4.5.1",
-    "@rstore/nuxt-drizzle": "^0.8.4",
+    "@rstore/nuxt-drizzle": "https://pkg.pr.new/directus/rstore/@rstore/nuxt-drizzle@6196411",
     "@rstore/vue": "^0.8.4",
     "@tresjs/cientos": "^5.6.0",
     "@tresjs/nuxt": "^5.5.0",
