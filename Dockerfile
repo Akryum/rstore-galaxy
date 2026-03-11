@@ -1,7 +1,4 @@
-FROM node:25-bookworm-slim AS base
-
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
+FROM node:24 AS base
 
 RUN corepack enable
 
@@ -11,13 +8,15 @@ FROM base AS deps
 
 COPY package.json pnpm-lock.yaml .npmrc ./
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --ignore-scripts
 
 FROM deps AS build
 
 COPY . .
 
 RUN pnpm build
+
+RUN pnpm db:migrate
 
 FROM node:25-bookworm-slim AS runner
 
