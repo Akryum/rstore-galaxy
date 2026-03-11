@@ -143,7 +143,7 @@ const isDev = import.meta.dev
       v-if="kioskMode"
       class="pointer-events-none absolute left-4 top-4 z-10 sm:left-6 sm:top-6"
     >
-      <div class="rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-3 text-3xl font-semibold tracking-[0.08em] text-white/92 shadow-xl shadow-slate-950/30 backdrop-blur-xl sm:px-5 sm:py-4 sm:text-5xl">
+      <div class="rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-3 text-xl font-semibold tracking-[0.08em] text-white/92 shadow-xl shadow-slate-950/30 backdrop-blur-xl sm:px-5 sm:py-4 sm:text-3xl">
         {{ profileCount }}
       </div>
     </div>
