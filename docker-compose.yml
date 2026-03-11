@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: rstore-galaxy-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: galaxy
+      POSTGRES_USER: galaxy
+      POSTGRES_PASSWORD: galaxy
+    ports:
+      - 5444:5432
+    volumes:
+      - galaxy-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U galaxy -d galaxy]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  galaxy-postgres-data:

@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+:root {
+  --galaxy-bg: #060816;
+  --galaxy-bg-2: #0f1730;
+  --galaxy-panel: rgba(10, 18, 38, 0.78);
+  --galaxy-panel-border: rgba(162, 238, 255, 0.14);
+  --galaxy-text: #f4fbff;
+}
+
+html {
+  color-scheme: dark;
+  background:
+    radial-gradient(circle at top, rgba(46, 246, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 255, 0.14), transparent 22%),
+    radial-gradient(circle at 20% 80%, rgba(255, 122, 60, 0.1), transparent 18%),
+    linear-gradient(180deg, var(--galaxy-bg), var(--galaxy-bg-2));
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: transparent;
+  color: var(--galaxy-text);
+  font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+#__nuxt {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+.galaxy-glass {
+  background: var(--galaxy-panel);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--galaxy-panel-border);
+  box-shadow: 0 24px 80px rgba(2, 8, 23, 0.45);
+}
