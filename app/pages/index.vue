@@ -139,6 +139,15 @@ const isDev = import.meta.dev
       @select="selectedId = $event"
     />
 
+    <div
+      v-if="kioskMode"
+      class="pointer-events-none absolute left-4 top-4 z-10 sm:left-6 sm:top-6"
+    >
+      <div class="rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-3 text-3xl font-semibold tracking-[0.08em] text-white/92 shadow-xl shadow-slate-950/30 backdrop-blur-xl sm:px-5 sm:py-4 sm:text-5xl">
+        {{ profileCount }}
+      </div>
+    </div>
+
     <div v-if="!kioskMode" class="pointer-events-none relative z-10 min-h-screen">
       <header class="pointer-events-auto absolute inset-x-0 top-0 px-4 py-4 sm:px-6">
         <div class="pointer-events-auto mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-full border border-white/8 bg-slate-950/42 px-4 py-3 shadow-xl shadow-slate-950/30 backdrop-blur-xl">
