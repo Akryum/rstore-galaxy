@@ -245,9 +245,6 @@ onMounted(() => {
         <p class="text-[11px] uppercase tracking-[0.24em] text-white/42">
           Realtime stress
         </p>
-        <p class="mt-2 text-sm leading-6 text-white/64">
-          Insert synthetic users on the server, then optionally simulate follow-up profile edits through the normal rstore realtime create, update, and delete path.
-        </p>
       </div>
 
       <span

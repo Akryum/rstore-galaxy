@@ -220,7 +220,7 @@ const isDev = import.meta.dev
       </header>
 
       <section class="pointer-events-none absolute inset-y-0 right-0 hidden w-full max-w-md p-4 lg:block lg:p-6">
-        <div class="flex h-full items-start justify-end pt-20">
+        <div class="flex h-full max-h-[calc(100dvh-5rem)] items-start justify-end pt-20 overflow-y-auto">
           <div class="pointer-events-auto w-full max-w-sm rounded-[1.75rem] border border-white/8 bg-slate-950/42 p-5 shadow-2xl shadow-slate-950/25 backdrop-blur-2xl">
             <div class="mb-4 flex items-center justify-between text-[11px] uppercase tracking-[0.28em] text-white/45">
               <span>{{ hasSelection ? 'Object details' : 'Overview' }}</span>
