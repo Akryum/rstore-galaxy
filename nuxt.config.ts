@@ -61,5 +61,6 @@ export default defineNuxtConfig({
 
   colorMode: {
     preference: 'dark',
+    storageKey: 'galaxy-color-mode',
   },
 })
