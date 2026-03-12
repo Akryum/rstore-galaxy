@@ -2,7 +2,7 @@
 
 `rstore-galaxy` is a small Nuxt demo that turns GitHub users into orbiting objects in a shared 3D scene. The project is meant to be read as much as it is meant to be run: it shows how `@rstore/nuxt-drizzle` and `@rstore/vue` fit together in a real app without burying the data flow under a lot of product code.
 
-## What This Repo Teaches
+## What's in this repo
 
 - Generating rstore collections from a Drizzle schema with `@rstore/nuxt-drizzle`
 - Reading live relational data with `liveQuery(...)`
@@ -10,7 +10,7 @@
 - Enforcing table-level access rules in server hooks
 - Publishing realtime updates when writes happen outside the generated CRUD handlers
 
-## Architecture At A Glance
+## Main User Flow
 
 1. GitHub OAuth creates or refreshes a `users` row and creates one `celestial_profiles` row per user.
 2. `@rstore/nuxt-drizzle` generates the client collections and server CRUD routes from [server/database/schema.ts](server/database/schema.ts).
