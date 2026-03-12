@@ -17,6 +17,7 @@ export async function useGalaxyPageState() {
       fetchPolicy: 'cache-and-fetch',
       params: {
         orderBy: ['updatedAt.desc'],
+        limit: 1000,
       },
       include: {
         user: true,
@@ -24,11 +25,26 @@ export async function useGalaxyPageState() {
     }),
   )
 
+  // Always perform a one-off query to ensure the user's profile is loaded and cached.
+  // Because it might not in the last 1000 updated profiles, and we want it to be available immediately if they have one.
+  await store.celestialProfiles.liveQuery(q => q.first(user.value?.id
+    ? {
+        where: eq('userId', user.value.id),
+        include: {
+          user: true,
+        },
+      }
+    : {
+        enabled: false,
+      }))
+
   // The live query subscribes to profiles. We also warm a users subscription so
   // GitHub profile changes propagate into the related inspector/search UI.
   store.users.subscribe(subscribe => subscribe({}))
 
-  const sceneItems = sceneQuery.data as Ref<SceneProfileItem[]>
+  // We use peekMany here to get all loaded profiles (from both the 1000 profiles and the current user profile)
+  const sceneItems = computed(() => store.celestialProfiles.peekMany()) as Ref<SceneProfileItem[]>
+
   const selectedId = ref<string | null>(null)
   const recenterSelectionEnabled = ref(false)
   const mobileInspectorOpen = ref(false)
@@ -45,7 +61,7 @@ export async function useGalaxyPageState() {
       return null
     }
 
-    return sceneItems.value.find(item => item.userId === user.value.id)?.id ?? null
+    return sceneItems.value.find(item => item.userId === user.value!.id)?.id ?? null
   })
   const hasSelection = computed(() => Boolean(selectedId.value))
   const stressTestVisibleSyntheticProfileCount = computed(() => {
