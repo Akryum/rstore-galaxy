@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import type { CommandPaletteGroup, CommandPaletteItem } from '@nuxt/ui'
+import type { SceneProfileItem } from '~/types/galaxy'
 import { BODY_TYPE_META, formatOrbitDistance, formatOrbitSpeed } from '~~/shared/galaxy'
-
-type SceneProfileItem = StoreWrappedItem<'celestialProfiles'> & {
-  user: StoreWrappedItem<'users'>
-}
 
 const props = defineProps<{
   items: SceneProfileItem[]

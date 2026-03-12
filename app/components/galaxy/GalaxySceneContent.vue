@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { GalaxySceneBody } from '~~/shared/galaxy'
+import type { SceneProfileItem } from '~/types/galaxy'
 import { OrbitControls } from '@tresjs/cientos'
 import { useLoop, useTres } from '@tresjs/core'
 import { Euler, Frustum, Matrix4, Quaternion, Sphere, Vector3 } from 'three'
@@ -10,10 +11,6 @@ import {
   getSceneBodyPosition,
   getSceneBodyScale,
 } from '~~/shared/galaxy'
-
-type SceneProfileItem = StoreWrappedItem<'celestialProfiles'> & {
-  user: StoreWrappedItem<'users'>
-}
 
 const props = defineProps<{
   items: SceneProfileItem[]
@@ -75,6 +72,9 @@ const fullDetailFrustum = new Frustum()
 const fullDetailProjectionMatrix = new Matrix4()
 const fullDetailViewportSphere = new Sphere()
 const fullDetailViewportCenter = new Vector3()
+// Bodies start in cheap instanced rendering, then graduate to full components
+// when they are selected or close enough to deserve more detail.
+const sceneBodies = computed<GalaxySceneBody[]>(() => getOrderedSceneItems(props.items))
 const selectedBody = computed(() => {
   if (!props.selectedId) {
     return null
@@ -130,7 +130,6 @@ const lodRefreshFrameInterval = computed(() => {
 
   return props.performanceMode ? 8 : 6
 })
-const sceneBodies = computed<GalaxySceneBody[]>(() => getOrderedSceneItems(props.items))
 const instancedBodyCapacity = computed(() => {
   return Math.max(INSTANCE_CAPACITY_FLOOR, sceneBodies.value.length)
 })
@@ -395,6 +394,7 @@ function syncEnteringBodies(frameElapsed = elapsed.value) {
   }
 }
 
+// Fade in newly appeared profiles so realtime arrivals feel intentional instead of abrupt.
 watch(sceneBodies, (nextBodies, previousBodies) => {
   const previousIds = new Set((previousBodies ?? []).map(body => body.id))
   const nextIds = new Set(nextBodies.map(body => body.id))
@@ -535,6 +535,8 @@ onMounted(() => {
   syncRecenterSelectionInterval()
 })
 
+// Each frame keeps the selected body centered while periodically recalculating
+// which bodies deserve full-detail component rendering.
 onBeforeRender(({ elapsed: frameElapsed }) => {
   elapsed.value = frameElapsed
   syncEnteringBodies(frameElapsed)

@@ -1,75 +1,111 @@
-# Nuxt Minimal Starter
+# Rstore Galaxy
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+`rstore-galaxy` is a small Nuxt demo that turns GitHub users into orbiting objects in a shared 3D scene. The project is meant to be read as much as it is meant to be run: it shows how `@rstore/nuxt-drizzle` and `@rstore/vue` fit together in a real app without burying the data flow under a lot of product code.
 
-## Setup
+## What This Repo Teaches
 
-Make sure to install dependencies:
+- Generating rstore collections from a Drizzle schema with `@rstore/nuxt-drizzle`
+- Reading live relational data with `liveQuery(...)`
+- Editing a single record with `updateForm()`
+- Enforcing table-level access rules in server hooks
+- Publishing realtime updates when writes happen outside the generated CRUD handlers
+
+## Architecture At A Glance
+
+1. GitHub OAuth creates or refreshes a `users` row and creates one `celestial_profiles` row per user.
+2. `@rstore/nuxt-drizzle` generates the client collections and server CRUD routes from [server/database/schema.ts](server/database/schema.ts).
+3. The home page opens one `liveQuery` on `celestialProfiles` and includes each related `user`.
+4. Selecting your own object creates an `updateForm()` bound to that profile.
+5. Server hooks in [server/plugins/rstore-permissions.ts](server/plugins/rstore-permissions.ts) sanitize the patch payload and enforce ownership before the generated route writes to Postgres.
+
+## Key Files
+
+- [app/composables/useGalaxyPageState.ts](app/composables/useGalaxyPageState.ts): main `liveQuery` example and page-level selection state
+- [app/components/galaxy/GalaxyInspector.vue](app/components/galaxy/GalaxyInspector.vue): selected-record query and inspector UI
+- [app/components/galaxy/GalaxyItemForm.vue](app/components/galaxy/GalaxyItemForm.vue): `updateForm()` autosave example
+- [server/routes/auth/github.get.ts](server/routes/auth/github.get.ts): OAuth sync flow plus manual realtime publishing
+- [server/plugins/rstore-permissions.ts](server/plugins/rstore-permissions.ts): row ownership checks and payload sanitizing
+- [shared/galaxy.ts](shared/galaxy.ts): shared domain constants and scene helpers
+
+## Local Setup
+
+### 1. Install dependencies
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+### 2. Configure environment variables
 
 ```bash
-# npm
-npm run dev
+cp .env.example .env
+```
 
-# pnpm
+Required values:
+
+- `DATABASE_URL`
+- `NUXT_SESSION_PASSWORD`
+- `NUXT_OAUTH_GITHUB_CLIENT_ID`
+- `NUXT_OAUTH_GITHUB_CLIENT_SECRET`
+
+If GitHub cannot infer the callback, also set `NUXT_OAUTH_GITHUB_REDIRECT_URL`.
+
+### 3. Start Postgres
+
+```bash
+docker compose up -d
+```
+
+The included container exposes Postgres on `localhost:5444`.
+
+### 4. Run the database migrations
+
+```bash
+pnpm db:migrate
+```
+
+### 5. Start the app
+
+```bash
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Open `http://localhost:3000`.
 
-Build the application for production:
+## GitHub OAuth Notes
+
+Create a GitHub OAuth app with:
+
+- Homepage URL: `http://localhost:3000`
+- Authorization callback URL: `http://localhost:3000/auth/github`
+
+For production, update both URLs to your deployed domain and set the matching environment variables.
+
+## Helpful Commands
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+pnpm dev
+pnpm lint
+pnpm typecheck
+pnpm db:generate
+pnpm db:migrate
 ```
 
-Locally preview production build:
+## Demo Features
 
-```bash
-# npm
-npm run preview
+- `/` renders the shared galaxy
+- `/login` starts GitHub OAuth
+- `?kiosk=true` hides the inspector chrome and shows only the total profile count
+- Development mode enables the realtime stress-test panel for bulk synthetic updates
 
-# pnpm
-pnpm preview
+## Why This Is Useful For New Rstore Users
 
-# yarn
-yarn preview
+The repo keeps the schema small and the rstore entry points visible. New users can trace one record all the way through the stack:
 
-# bun
-bun run preview
-```
+1. Drizzle schema definition
+2. Generated rstore collection
+3. `liveQuery` read on the page
+4. `updateForm` mutation in the inspector
+5. Server-side hook validation before persistence
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+That makes it a good starting point for understanding the “generated collections + rich client API + server guardrails” workflow.

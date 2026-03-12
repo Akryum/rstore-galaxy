@@ -72,9 +72,9 @@ const atmosphereScale = computed<[number, number, number]>(() => {
     <!-- Distant planets keep a single low-poly body. -->
     <TresMesh
       key="planet-low"
-    :geometry="planetLowDetailGeometry"
-    :scale="[props.selectedScale, props.selectedScale, props.selectedScale]"
-  >
+      :geometry="planetLowDetailGeometry"
+      :scale="[props.selectedScale, props.selectedScale, props.selectedScale]"
+    >
       <TresMeshBasicMaterial :color="colorHex" :side="DoubleSide" />
     </TresMesh>
   </template>

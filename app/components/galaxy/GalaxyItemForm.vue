@@ -16,6 +16,7 @@ const props = defineProps<{
   profile: StoreWrappedItem<'celestialProfiles'>
 }>()
 
+// updateForm wires the controls directly to the selected rstore item.
 const form = await props.profile.$updateForm()
 const formWithChanges = form as typeof form & {
   $hasChanges: () => boolean
@@ -75,6 +76,7 @@ async function saveForm() {
   await form.$submit()
 }
 
+// Small debounce keeps the demo feeling immediate without spamming writes.
 const autoSave = useDebounceFn(() => {
   if (hasUnsavedChanges.value) {
     saveForm()

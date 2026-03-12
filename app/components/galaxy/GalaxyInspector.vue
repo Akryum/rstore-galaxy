@@ -18,6 +18,7 @@ const emit = defineEmits<{
 const store = useStore()
 const { loggedIn, user } = useUserSession()
 
+// The inspector follows the current selection key instead of duplicating scene state locally.
 const { data: profile } = await store.celestialProfiles.query(builder =>
   builder.first(props.selectedId
     ? {

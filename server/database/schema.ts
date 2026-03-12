@@ -5,6 +5,8 @@ import { BODY_TYPES, COLOR_TOKENS } from '../../shared/galaxy'
 export const bodyTypeEnum = pgEnum('body_type', [...BODY_TYPES])
 export const colorTokenEnum = pgEnum('color_token', [...COLOR_TOKENS])
 
+// Keep the demo schema intentionally small: a GitHub user owns exactly one
+// orbital profile, which is the record edited through the public rstore API.
 export const users = pgTable('users', {
   id: uuid('id').defaultRandom().primaryKey(),
   githubId: text('github_id').notNull().unique(),
@@ -19,6 +21,7 @@ export const users = pgTable('users', {
   lastLoginAt: timestamp('last_login_at', { withTimezone: true }).defaultNow().notNull(),
 })
 
+// This is the table exposed to learners through the liveQuery/updateForm flow.
 export const celestialProfiles = pgTable('celestial_profiles', {
   id: uuid('id').defaultRandom().primaryKey(),
   userId: uuid('user_id').notNull().unique().references(() => users.id, { onDelete: 'cascade' }),

@@ -60,6 +60,8 @@ export default defineOAuthGitHubEventHandler({
       where: eq(celestialProfiles.userId, dbUser.id),
     })
 
+    // Login is the only place that mutates user records, so we publish the
+    // matching realtime event manually after the direct Drizzle write.
     publishRstoreDrizzleRealtimeUpdate({
       collection: schema.users,
       type: existingUser ? 'updated' : 'created',

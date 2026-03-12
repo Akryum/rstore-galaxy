@@ -1,10 +1,7 @@
 <script setup lang="ts">
+import type { SceneProfileItem } from '~/types/galaxy'
 import { BloomPmndrs, EffectComposerPmndrs, NoisePmndrs, ScanlinePmndrs, VignettePmndrs } from '@tresjs/post-processing'
 import { BlendFunction } from 'postprocessing'
-
-type SceneProfileItem = StoreWrappedItem<'celestialProfiles'> & {
-  user: StoreWrappedItem<'users'>
-}
 
 const props = defineProps<{
   items: SceneProfileItem[]
