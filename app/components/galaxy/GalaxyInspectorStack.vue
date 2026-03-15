@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import type { SceneProfileItem } from '~/types/galaxy'
+
 defineProps<{
   orbitActionError: string | null
+  recentProfiles: SceneProfileItem[]
   sceneLimit: number
   selectedId: string | null
   selectedUserLogin: string | null
@@ -11,6 +14,7 @@ defineEmits<{
   clearSelection: []
   editOwn: []
   login: []
+  select: [id: string]
 }>()
 </script>
 
@@ -19,8 +23,10 @@ defineEmits<{
     <GalaxyInspector
       :selected-id="selectedId"
       :orbit-action-error="orbitActionError"
+      :recent-profiles="recentProfiles"
       @edit-own="$emit('editOwn')"
       @login="$emit('login')"
+      @select="$emit('select', $event)"
     />
     <GalaxyStressTestPanel
       :visible-synthetic-profile-count="visibleSyntheticProfileCount"

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import GalaxyRecentProfiles from '~/components/galaxy/GalaxyRecentProfiles.vue'
+
 const {
   currentUserProfileId,
   clearSelection,
@@ -10,6 +12,7 @@ const {
   mobileInspectorOpen,
   orbitActionError,
   profileCount,
+  recentProfiles,
   recenterSelectionEnabled,
   sceneItems,
   selectedId,
@@ -87,17 +90,32 @@ function toggleRecenterSelection() {
               <GalaxyInspectorStack
                 :selected-id="selectedId"
                 :orbit-action-error="orbitActionError"
+                :recent-profiles="recentProfiles"
                 :visible-synthetic-profile-count="stressTestVisibleSyntheticProfileCount"
                 :scene-limit="stressPanelSceneLimit"
                 :selected-user-login="selectedUserLogin"
                 @edit-own="editOwnOrbit"
                 @login="navigateTo('/login')"
                 @clear-selection="clearSelection"
+                @select="selectedId = $event"
               />
             </div>
           </div>
         </div>
       </section>
+
+      <div
+        v-if="!hasSelection && recentProfiles.length"
+        class="pointer-events-none absolute inset-x-0 bottom-20 z-10 px-4 lg:hidden"
+      >
+        <div class="pointer-events-auto mx-auto max-w-full">
+          <GalaxyRecentProfiles
+            :items="recentProfiles"
+            compact
+            @select="selectedId = $event"
+          />
+        </div>
+      </div>
 
       <div class="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center px-4 lg:hidden">
         <div class="pointer-events-auto rounded-full border border-white/8 bg-slate-950/42 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-white/50 backdrop-blur-xl">
@@ -125,12 +143,14 @@ function toggleRecenterSelection() {
             <GalaxyInspectorStack
               :selected-id="selectedId"
               :orbit-action-error="orbitActionError"
+              :recent-profiles="recentProfiles"
               :visible-synthetic-profile-count="stressTestVisibleSyntheticProfileCount"
               :scene-limit="stressPanelSceneLimit"
               :selected-user-login="selectedUserLogin"
               @edit-own="editOwnOrbit"
               @login="navigateTo('/login')"
               @clear-selection="clearSelection"
+              @select="selectedId = $event"
             />
           </div>
         </template>

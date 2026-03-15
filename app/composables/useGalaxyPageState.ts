@@ -44,6 +44,24 @@ export async function useGalaxyPageState() {
 
   // We use peekMany here to get all loaded profiles (from both the 1000 profiles and the current user profile)
   const sceneItems = computed(() => store.celestialProfiles.peekMany()) as Ref<SceneProfileItem[]>
+  const recentProfiles = computed(() => {
+    return sceneItems.value
+      .filter(profile => !isRealtimeStressLogin(profile.user.login))
+      .toSorted((left, right) => {
+        const createdAtDelta = getComparableTimestamp(right.user.createdAt) - getComparableTimestamp(left.user.createdAt)
+        if (createdAtDelta !== 0) {
+          return createdAtDelta
+        }
+
+        const updatedAtDelta = getComparableTimestamp(right.updatedAt) - getComparableTimestamp(left.updatedAt)
+        if (updatedAtDelta !== 0) {
+          return updatedAtDelta
+        }
+
+        return left.user.login.localeCompare(right.user.login)
+      })
+      .slice(0, 15)
+  })
 
   const selectedId = ref<string | null>(null)
   const recenterSelectionEnabled = ref(false)
@@ -152,6 +170,7 @@ export async function useGalaxyPageState() {
     mobileInspectorOpen,
     orbitActionError,
     profileCount,
+    recentProfiles,
     recenterSelectionEnabled,
     sceneItems,
     selectedId,
@@ -159,4 +178,17 @@ export async function useGalaxyPageState() {
     stressTestVisibleSyntheticProfileCount,
     user,
   }
+}
+
+function getComparableTimestamp(value: Date | string | null | undefined) {
+  if (value instanceof Date) {
+    return value.getTime()
+  }
+
+  if (typeof value === 'string') {
+    const timestamp = Date.parse(value)
+    return Number.isNaN(timestamp) ? 0 : timestamp
+  }
+
+  return 0
 }

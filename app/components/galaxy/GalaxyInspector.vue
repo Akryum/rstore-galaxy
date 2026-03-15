@@ -1,18 +1,22 @@
 <script setup lang="ts">
+import type { SceneProfileItem } from '~/types/galaxy'
 import {
   BODY_TYPE_META,
   formatOrbitDistance,
   formatOrbitLinearSpeed,
 } from '~~/shared/galaxy'
+import GalaxyRecentProfiles from './GalaxyRecentProfiles.vue'
 
 const props = defineProps<{
   selectedId: string | null
   orbitActionError: string | null
+  recentProfiles: SceneProfileItem[]
 }>()
 
 const emit = defineEmits<{
   editOwn: []
   login: []
+  select: [id: string]
 }>()
 
 const store = useStore()
@@ -147,6 +151,12 @@ const canEdit = computed(() => {
       >
         Edit my orbit
       </UButton>
+
+      <GalaxyRecentProfiles
+        v-if="recentProfiles.length"
+        :items="recentProfiles"
+        @select="emit('select', $event)"
+      />
 
       <p v-if="orbitActionError" class="rounded-2xl border border-amber-300/20 bg-amber-300/8 px-4 py-3 text-sm text-amber-100">
         {{ orbitActionError }}
